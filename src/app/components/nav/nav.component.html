@@ -7,6 +7,11 @@
     <span class="menu-spacer"></span>
     <a mat-button [routerLink]="'/'">Home</a>
     <a mat-button [routerLink]="'/dashboard'">Dashboard</a>
+    <a mat-button [matMenuTriggerFor]="volunteers">Volunteers</a>
+    <mat-menu #volunteers="matMenu">
+      <a mat-menu-item [routerLink]="'/volunteer'">Volunteer</a>
+      <a mat-menu-item [routerLink]="'/add-volunteer'">Add Volunteer</a>
+    </mat-menu>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>

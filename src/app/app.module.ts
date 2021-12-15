@@ -12,9 +12,14 @@ import { NavComponent } from './components/nav/nav.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { VolunteersComponent } from './components/volunteers/volunteers.component';
+import { AddVolunteerComponent } from './components/volunteers/add-volunteer/add-volunteer.component';
+import { EditVolunteerComponent } from './components/volunteers/edit-volunteer/edit-volunteer.component';
+import { DeleteVolunteerComponent } from './components/volunteers/delete-volunteer/delete-volunteer.component';
+import { DetailVolunteerComponent } from './components/volunteers/detail-volunteer/detail-volunteer.component';
 
 @NgModule({
-  declarations: [AppComponent, NavComponent, HomeComponent, HeaderComponent, DashboardComponent],
+  declarations: [AppComponent, NavComponent, HomeComponent, HeaderComponent, DashboardComponent, VolunteersComponent, AddVolunteerComponent, EditVolunteerComponent, DeleteVolunteerComponent, DetailVolunteerComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
