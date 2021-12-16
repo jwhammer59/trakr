@@ -8,5 +8,8 @@ export class Volunteer {
   city: string = '';
   state: string = '';
   zipcode: number = 0;
+  phone: string = '';
+  email: string = '';
   isAvailable: boolean = false;
+  isAdmin: boolean = false;
 }
