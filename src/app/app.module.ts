@@ -28,7 +28,12 @@ import { AddVolunteerComponent } from './components/volunteers/add-volunteer/add
 import { EditVolunteerComponent } from './components/volunteers/edit-volunteer/edit-volunteer.component';
 import { DeleteVolunteerComponent } from './components/volunteers/delete-volunteer/delete-volunteer.component';
 import { DetailVolunteerComponent } from './components/volunteers/detail-volunteer/detail-volunteer.component';
-import { VolunteerTableComponent } from './components/volunteers/table/volunteer-table.component';
+import { VolunteerTableComponent } from './components/volunteers/vol-table/volunteer-table.component';
+import { FamilyIdComponent } from './components/family-id/family-id.component';
+import { AddFamilyIdComponent } from './components/family-id/add-family-id/add-family-id.component';
+import { DeleteFamilyIdComponent } from './components/family-id/delete-family-id/delete-family-id.component';
+import { DetailFamilyIdComponent } from './components/family-id/detail-family-id/detail-family-id.component';
+import { EditFamilyIdComponent } from './components/family-id/edit-family-id/edit-family-id.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +49,11 @@ import { VolunteerTableComponent } from './components/volunteers/table/volunteer
     DetailVolunteerComponent,
     VolunteerTableComponent,
     PhonePipe,
+    FamilyIdComponent,
+    AddFamilyIdComponent,
+    DeleteFamilyIdComponent,
+    DetailFamilyIdComponent,
+    EditFamilyIdComponent,
   ],
   imports: [
     BrowserModule,

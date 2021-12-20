@@ -13,9 +13,9 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'volunteer', component: VolunteersComponent },
   { path: 'add-volunteer', component: AddVolunteerComponent },
-  { path: 'edit-volunteer', component: EditVolunteerComponent },
+  { path: 'edit-volunteer/:id', component: EditVolunteerComponent },
   { path: 'delete-volunteer', component: DeleteVolunteerComponent },
-  { path: 'detail-volunteer', component: DetailVolunteerComponent },
+  { path: 'detail-volunteer/:id', component: DetailVolunteerComponent },
   { path: '**', component: HomeComponent },
 ];
 

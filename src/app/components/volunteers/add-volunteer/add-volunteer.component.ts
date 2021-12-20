@@ -59,7 +59,7 @@ export class AddVolunteerComponent implements OnInit {
     } else {
       this.volunteersService.addVolunteer(value);
       this.autoDismissSnackBar('Volunteer Added!', '');
-      this.router.navigate(['/volunteers']);
+      this.router.navigate(['/volunteer']);
     }
   }
 
