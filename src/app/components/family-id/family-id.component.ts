@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-family-id',
   templateUrl: './family-id.component.html',
-  styleUrls: ['./family-id.component.scss']
+  styleUrls: ['./family-id.component.scss'],
 })
-export class FamilyIdComponent implements OnInit {
+export class FamilyIdComponent {
+  headerTitle = 'Family ID';
+  headerColor = 'accent';
+  headerIcon = 'family_restroom';
 
-  constructor() { }
+  showSpinner: boolean = true;
 
-  ngOnInit(): void {
+  isLoading(spinnerStatus: boolean) {
+    this.showSpinner = spinnerStatus;
   }
 
+  constructor() {}
 }

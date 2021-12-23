@@ -5,7 +5,6 @@ import {
   AngularFirestoreCollection,
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
-import firestore from 'firebase/compat/app';
 import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
 

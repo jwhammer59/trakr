@@ -5,6 +5,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Volunteer } from 'src/app/models/Volunteer';
 import { VolunteersService } from 'src/app/services/volunteers.service';
 
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteVolunteerComponent } from '../delete-volunteer/delete-volunteer.component';
+
 @Component({
   selector: 'app-detail-volunteer',
   templateUrl: './detail-volunteer.component.html',
@@ -34,13 +37,34 @@ export class DetailVolunteerComponent implements OnInit {
   constructor(
     private volunteersService: VolunteersService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.volunteersService.getVolunteer(this.id).subscribe((volunteer) => {
       this.volunteer = volunteer;
+    });
+  }
+
+  onDeleteClicked() {
+    const dialogRefDeleteVol = this.dialog.open(DeleteVolunteerComponent, {
+      width: '325px',
+      data: {
+        firstName: this.volunteer.firstName,
+        lastName: this.volunteer.lastName,
+      },
+    });
+
+    dialogRefDeleteVol.afterClosed().subscribe((result) => {
+      if (!result) {
+        dialogRefDeleteVol.close();
+        return;
+      } else {
+        this.volunteersService.deleteVolunteer(this.volunteer);
+      }
+      this.router.navigate(['/volunteers']);
     });
   }
 }

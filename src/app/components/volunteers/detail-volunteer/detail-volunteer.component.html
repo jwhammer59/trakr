@@ -30,11 +30,24 @@
             <span class="text-layout">Zipcode:</span> {{ volunteer.zipcode }}
           </div>
         </div>
+        <div id="checkbox-layout" fxLayout fxLayoutAlign="space-evenly">
+          <div>
+            <span class="text-layout">Is Available:</span>
+            <mat-checkbox
+              [checked]="volunteer.isAvailable"
+              disabled
+            ></mat-checkbox>
+          </div>
+          <div>
+            <span class="text-layout">Is Admin:</span>
+            <mat-checkbox [checked]="volunteer.isAdmin" disabled></mat-checkbox>
+          </div>
+        </div>
       </mat-card-content>
       <mat-card-actions>
         <div fxLayout fxLayoutAlign="space-evenly">
           <div>
-            <button mat-stroked-button color="primary" routerLink="/volunteer">
+            <button mat-stroked-button color="primary" routerLink="/volunteers">
               <mat-icon>arrow_back</mat-icon>
               Volunteers
             </button>
@@ -50,7 +63,7 @@
             </button>
           </div>
           <div>
-            <button mat-stroked-button color="warn">
+            <button mat-stroked-button color="warn" (click)="onDeleteClicked()">
               <mat-icon>delete</mat-icon>
               Delete
             </button>

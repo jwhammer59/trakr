@@ -8,7 +8,6 @@ import { VolunteersService } from 'src/app/services/volunteers.service';
 import { STATES } from 'src/app/data/state-data';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-add-volunteer',
@@ -59,7 +58,7 @@ export class AddVolunteerComponent implements OnInit {
     } else {
       this.volunteersService.addVolunteer(value);
       this.autoDismissSnackBar('Volunteer Added!', '');
-      this.router.navigate(['/volunteer']);
+      this.router.navigate(['/volunteers']);
     }
   }
 
