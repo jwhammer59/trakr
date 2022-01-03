@@ -6,7 +6,7 @@ import { DeleteFamilyIdComponent } from '../components/family-id/delete-family-i
 import { DetailFamilyIdComponent } from '../components/family-id/detail-family-id/detail-family-id.component';
 import { EditFamilyIdComponent } from '../components/family-id/edit-family-id/edit-family-id.component';
 import { FamilyIdComponent } from '../components/family-id/family-id.component';
-import { HomeComponent } from '../components/home/home.component';
+import { HomeComponent } from '../components/common/home/home.component';
 import { AddVolunteerComponent } from '../components/volunteers/add-volunteer/add-volunteer.component';
 import { DeleteVolunteerComponent } from '../components/volunteers/delete-volunteer/delete-volunteer.component';
 import { DetailVolunteerComponent } from '../components/volunteers/detail-volunteer/detail-volunteer.component';

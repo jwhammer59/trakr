@@ -19,9 +19,9 @@ import { MaterialModule } from './material/material.module';
 // Pipes
 import { PhonePipe } from './pipes/phone-pipe';
 
-import { NavComponent } from './components/nav/nav.component';
-import { HomeComponent } from './components/home/home.component';
-import { HeaderComponent } from './components/header/header.component';
+import { NavComponent } from './components/common/nav/nav.component';
+import { HomeComponent } from './components/common/home/home.component';
+import { HeaderComponent } from './components/common/header/header.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { VolunteersComponent } from './components/volunteers/volunteers.component';
 import { AddVolunteerComponent } from './components/volunteers/add-volunteer/add-volunteer.component';

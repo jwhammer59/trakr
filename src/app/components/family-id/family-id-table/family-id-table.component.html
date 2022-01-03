@@ -65,7 +65,10 @@
           <h3>Is Active</h3>
         </th>
         <td class="detail-align" mat-cell *matCellDef="let row">
-          <mat-checkbox [checked]="row.isAvailable" disabled></mat-checkbox>
+          <mat-checkbox
+            [checked]="row.householdIsActive"
+            disabled
+          ></mat-checkbox>
         </td>
       </ng-container>
 

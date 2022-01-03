@@ -5,8 +5,8 @@
     </button>
     <h1>Trakr</h1>
     <span class="menu-spacer"></span>
-    <a mat-button [routerLink]="'/'">Home</a>
-    <a mat-button [routerLink]="'/dashboard'">Dashboard</a>
+    <a mat-button routerLink="/">Home</a>
+    <a mat-button routerLink="/dashboard">Dashboard</a>
     <a mat-button [matMenuTriggerFor]="volunteers">Volunteers</a>
     <mat-menu #volunteers="matMenu">
       <a mat-menu-item routerLink="/volunteers">Volunteer</a>
