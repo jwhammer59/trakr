@@ -1,3 +1,125 @@
 <app-header [title]="headerTitle" [color]="headerColor" [icon]="headerIcon">
 </app-header>
-<p>add-family-id works!</p>
+<div fxLayout fxLayoutAlign="center center">
+  <mat-card class="mat-elevation-z12">
+    <form
+      [formGroup]="familyIdForm"
+      (ngSubmit)="onSubmit(familyIdForm)"
+      novalidate
+    >
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <div class="layout">
+          <h3>Family ID Info</h3>
+          <div
+            fxLayout
+            fxLayout.lt-md="column"
+            fxLayoutAlign="space-evenly center"
+            fxLayoutGap="20px"
+          >
+            <div fxFlex="1 1 auto">
+              <mat-form-field fxFlexFill appearance="outline">
+                <mat-label>Household First Name</mat-label>
+                <input
+                  matInput
+                  placeholder="Please enter first name."
+                  formControlName="householdFirstName"
+                  required
+                />
+                <mat-error> Please enter first name. </mat-error>
+              </mat-form-field>
+            </div>
+            <div fxFlex="1 1 auto">
+              <mat-form-field appearance="outline">
+                <mat-label>Household Last Name</mat-label>
+                <input
+                  matInput
+                  placeholder="Please enter last name."
+                  formControlName="householdLastName"
+                  required
+                />
+                <mat-error> Please enter last name. </mat-error>
+              </mat-form-field>
+            </div>
+            <div fxFlex="1 1 auto">
+              <mat-form-field appearance="outline">
+                <mat-label>Family ID</mat-label>
+                <input
+                  matInput
+                  placeholder="Please enter Family ID"
+                  formControlName="familyID"
+                  required
+                />
+                <mat-error>Please enter a Family ID.</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="layout">
+          <div
+            id="bottom"
+            fxLayout
+            fxLayout.lt-md="column"
+            fxLayoutAlign="space-evenly center"
+            fxLayoutGap="20px"
+          >
+            <div fxFlex="1 1 auto">
+              <mat-form-field appearance="outline">
+                <mat-label>Household Phone #</mat-label>
+                <input
+                  #phone
+                  matInput
+                  placeholder="Please enter name."
+                  formControlName="householdPhone"
+                  maxLength="10"
+                  required
+                />
+                <mat-hint align="end">{{ phone.value.length }} / 10</mat-hint>
+                <mat-error> Please enter a phone number. </mat-error>
+              </mat-form-field>
+            </div>
+            <div fxFlex="1 1 auto">
+              <mat-form-field appearance="outline">
+                <mat-label>Household Email</mat-label>
+                <input
+                  matInput
+                  placeholder="Please enter Family ID"
+                  formControlName="householdEmail"
+                  required
+                />
+                <mat-error>Please enter an email address.</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <mat-divider></mat-divider>
+          <div id="status" class="layout">
+            <div fxLayout fxLayoutAlign="space-between">
+              <mat-checkbox formControlName="householdIsActive">
+                Is Active
+              </mat-checkbox>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="confirm"
+        fxLayout
+        fxLayout.lt-md="column"
+        fxLayoutAlign="space-evenly"
+      >
+        <button mat-stroked-button color="primary" routerLink="/familyIds">
+          <mat-icon>arrow_back</mat-icon>
+          Family ID
+        </button>
+        <button mat-stroked-button color="primary" type="submit" value="Submit">
+          <mat-icon>save</mat-icon>
+          Save
+        </button>
+        <button mat-stroked-button color="warn" routerLink="/familyIds">
+          <mat-icon>cancel</mat-icon>
+          Cancel
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>

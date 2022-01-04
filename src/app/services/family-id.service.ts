@@ -19,8 +19,10 @@ export class FamilyIdService {
   familyIDs!: Observable<FamilyID[]>;
   familyID!: Observable<any>;
 
+  dbPath: string = 'familyIDs';
+
   constructor(private afs: AngularFirestore) {
-    this.familyIdCollection = afs.collection<FamilyID>('familyIDs');
+    this.familyIdCollection = afs.collection<FamilyID>(`${this.dbPath}`);
   }
 
   getFamilyIDs() {
@@ -37,7 +39,7 @@ export class FamilyIdService {
   }
 
   getFamilyID(id: string): Observable<FamilyID> {
-    this.familyIdDoc = this.afs.doc<FamilyID>(`familyIDs/${id}`);
+    this.familyIdDoc = this.afs.doc<FamilyID>(`${this.dbPath}/${id}`);
     this.familyID = this.familyIdDoc.snapshotChanges().pipe(
       map((action) => {
         if (action.payload.exists === false) {
@@ -57,12 +59,12 @@ export class FamilyIdService {
   }
 
   updateFamilyID(familyID: FamilyID) {
-    this.familyIdDoc = this.afs.doc(`familyIDs/${familyID.id}`);
+    this.familyIdDoc = this.afs.doc(`${this.dbPath}/${familyID.id}`);
     this.familyIdDoc.update(familyID);
   }
 
   deleteFamilyID(familyID: FamilyID) {
-    this.familyIdDoc = this.afs.doc(`familyIDs/${familyID.id}`);
+    this.familyIdDoc = this.afs.doc(`${this.dbPath}/${familyID.id}`);
     this.familyIdDoc.delete();
   }
 }

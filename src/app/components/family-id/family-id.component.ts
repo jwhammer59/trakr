@@ -10,11 +10,5 @@ export class FamilyIdComponent {
   headerColor = 'accent';
   headerIcon = 'family_restroom';
 
-  showSpinner: boolean = true;
-
-  isLoading(spinnerStatus: boolean) {
-    this.showSpinner = spinnerStatus;
-  }
-
   constructor() {}
 }

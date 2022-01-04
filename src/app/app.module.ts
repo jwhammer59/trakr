@@ -35,6 +35,7 @@ import { DeleteFamilyIdComponent } from './components/family-id/delete-family-id
 import { DetailFamilyIdComponent } from './components/family-id/detail-family-id/detail-family-id.component';
 import { EditFamilyIdComponent } from './components/family-id/edit-family-id/edit-family-id.component';
 import { FamilyIdTableComponent } from './components/family-id/family-id-table/family-id-table.component';
+import { LoadingComponent } from './components/common/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { FamilyIdTableComponent } from './components/family-id/family-id-table/f
     DetailFamilyIdComponent,
     EditFamilyIdComponent,
     FamilyIdTableComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,

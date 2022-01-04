@@ -9,6 +9,7 @@ import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Volunteer } from '../models/Volunteer';
+import { LoadingService } from './loading.service';
 
 @Injectable({
   providedIn: 'root',
@@ -19,8 +20,13 @@ export class VolunteersService {
   volunteers!: Observable<Volunteer[]>;
   volunteer!: Observable<any>;
 
-  constructor(private afs: AngularFirestore) {
-    this.volunteerCollection = afs.collection<Volunteer>('volunteers');
+  dbPath: string = 'volunteers';
+
+  constructor(
+    private afs: AngularFirestore,
+    private loadingService: LoadingService
+  ) {
+    this.volunteerCollection = afs.collection<Volunteer>(`${this.dbPath}`);
   }
 
   getVolunteers() {
@@ -37,7 +43,7 @@ export class VolunteersService {
   }
 
   getVolunteer(id: string): Observable<Volunteer> {
-    this.volunteerDoc = this.afs.doc<Volunteer>(`volunteers/${id}`);
+    this.volunteerDoc = this.afs.doc<Volunteer>(`${this.dbPath}/${id}`);
     this.volunteer = this.volunteerDoc.snapshotChanges().pipe(
       map((action) => {
         if (action.payload.exists === false) {
@@ -57,12 +63,12 @@ export class VolunteersService {
   }
 
   updateVolunteer(volunteer: Volunteer) {
-    this.volunteerDoc = this.afs.doc(`volunteers/${volunteer.id}`);
+    this.volunteerDoc = this.afs.doc(`${this.dbPath}/${volunteer.id}`);
     this.volunteerDoc.update(volunteer);
   }
 
   deleteVolunteer(volunteer: Volunteer) {
-    this.volunteerDoc = this.afs.doc(`volunteers/${volunteer.id}`);
+    this.volunteerDoc = this.afs.doc(`${this.dbPath}/${volunteer.id}`);
     this.volunteerDoc.delete();
   }
 }

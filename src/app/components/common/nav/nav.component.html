@@ -26,6 +26,24 @@
       <a mat-list-item routerLink="/dashboard" (click)="sidenav.toggle()">
         Dashboard
       </a>
+      <a mat-list-item [matMenuTriggerFor]="volunteer">Volunteers</a>
+      <mat-menu #volunteer="matMenu">
+        <a mat-menu-item routerLink="/volunteers" (click)="sidenav.toggle()"
+          >Volunteer Table</a
+        >
+        <a mat-menu-item routerLink="/add-volunteer" (click)="sidenav.toggle()"
+          >Add Volunteer</a
+        >
+      </mat-menu>
+      <a mat-list-item [matMenuTriggerFor]="familyId">Family IDs</a>
+      <mat-menu #familyId="matMenu">
+        <a mat-menu-item routerLink="/familyIds" (click)="sidenav.toggle()"
+          >Family ID Table</a
+        >
+        <a mat-menu-item routerLink="/add-familyId" (click)="sidenav.toggle()"
+          >Add Family ID</a
+        >
+      </mat-menu>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

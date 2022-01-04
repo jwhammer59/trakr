@@ -43,7 +43,9 @@
                   <mat-label>Family ID</mat-label>
                   <mat-select formControlName="familyID">
                     <mat-option [value]="''">--</mat-option>
-                    <mat-option [value]="'Hammer1'"> Hammer1 </mat-option>
+                    <mat-option *ngFor="let familyId of allFamilyIDs$ | async">
+                      {{ familyId.familyID }}
+                    </mat-option>
                   </mat-select>
                   <mat-error>Please enter family ID</mat-error>
                 </mat-form-field>

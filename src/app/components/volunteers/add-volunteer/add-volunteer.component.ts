@@ -5,9 +5,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Volunteer } from 'src/app/models/Volunteer';
 import { VolunteersService } from 'src/app/services/volunteers.service';
 
-import { STATES } from 'src/app/data/state-data';
-
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable } from 'rxjs';
+import { FamilyID } from 'src/app/models/FamilyID';
+import { FamilyIdService } from 'src/app/services/family-id.service';
+
+import { STATES } from 'src/app/data/state-data';
 
 @Component({
   selector: 'app-add-volunteer',
@@ -23,10 +26,13 @@ export class AddVolunteerComponent implements OnInit {
 
   volunteerForm: FormGroup;
 
+  allFamilyIDs$!: Observable<FamilyID[]>;
+
   states = STATES;
 
   constructor(
     private volunteersService: VolunteersService,
+    private familyIdService: FamilyIdService,
     private router: Router,
     private fb: FormBuilder,
     private snackBar: MatSnackBar
@@ -47,7 +53,9 @@ export class AddVolunteerComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.allFamilyIDs$ = this.familyIdService.getFamilyIDs();
+  }
 
   onSubmit({ value, valid }: { value: Volunteer; valid: boolean }) {
     if (!valid) {
