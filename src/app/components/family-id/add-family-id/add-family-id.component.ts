@@ -80,7 +80,7 @@ export class AddFamilyIdComponent implements OnInit {
       this.familyIdService.addFamilyID(value);
       this.currentFamilyID = '';
       this.autoDismissSnackBar('Family ID Added!', '');
-      this.router.navigate(['/familyID']);
+      this.router.navigate(['/familyIds']);
     }
   }
 

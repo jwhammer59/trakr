@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { FamilyID } from 'src/app/models/FamilyID';
+import { FamilyIdService } from 'src/app/services/family-id.service';
+
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteFamilyIdComponent } from '../delete-family-id/delete-family-id.component';
+
 @Component({
   selector: 'app-detail-family-id',
   templateUrl: './detail-family-id.component.html',
@@ -10,7 +18,47 @@ export class DetailFamilyIdComponent implements OnInit {
   headerColor = 'accent';
   headerIcon = 'details';
 
-  constructor() {}
+  id: string = '';
+  familyId: FamilyID = {
+    familyID: '',
+    householdFirstName: '',
+    householdLastName: '',
+    householdEmail: '',
+    householdPhone: '',
+    householdIsActive: false,
+  };
 
-  ngOnInit(): void {}
+  constructor(
+    private familyIdService: FamilyIdService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private dialog: MatDialog
+  ) {}
+
+  ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
+    this.familyIdService.getFamilyID(this.id).subscribe((familyId) => {
+      this.familyId = familyId;
+    });
+  }
+
+  onDeleteClicked() {
+    const dialogRefDeleteFamilyId = this.dialog.open(DeleteFamilyIdComponent, {
+      width: '325px',
+      data: {
+        householdFirstName: this.familyId.householdFirstName,
+        householdLastName: this.familyId.householdLastName,
+      },
+    });
+
+    dialogRefDeleteFamilyId.afterClosed().subscribe((result) => {
+      if (!result) {
+        dialogRefDeleteFamilyId.close();
+        return;
+      } else {
+        this.familyIdService.deleteFamilyID(this.familyId);
+      }
+      this.router.navigate(['/familyIds']);
+    });
+  }
 }
