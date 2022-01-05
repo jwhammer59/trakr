@@ -1,1 +1,26 @@
-<p>delete-family-id works!</p>
+<h1 mat-dialog-title>Delete Family ID?</h1>
+<div mat-dialog-content>
+  <p>
+    Family ID to be deleted: <span>{{ data.familyID }}</span
+    >.
+  </p>
+  <p>Are you sure you want to delete this Family ID?</p>
+</div>
+<div mat-dialog-actions>
+  <button
+    mat-stroked-button
+    color="primary"
+    (click)="onNoClick()"
+    cdkFocusInitial
+  >
+    Cancel
+  </button>
+  <button
+    mat-stroked-button
+    color="warn"
+    [matDialogClose]="true"
+    (click)="onDeleteClick()"
+  >
+    Ok
+  </button>
+</div>

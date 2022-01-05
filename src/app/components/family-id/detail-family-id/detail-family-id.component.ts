@@ -46,8 +46,7 @@ export class DetailFamilyIdComponent implements OnInit {
     const dialogRefDeleteFamilyId = this.dialog.open(DeleteFamilyIdComponent, {
       width: '325px',
       data: {
-        householdFirstName: this.familyId.householdFirstName,
-        householdLastName: this.familyId.householdLastName,
+        familyID: this.familyId.familyID,
       },
     });
 

@@ -1,15 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+import { FamilyID } from 'src/app/models/FamilyID';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-delete-family-id',
   templateUrl: './delete-family-id.component.html',
-  styleUrls: ['./delete-family-id.component.scss']
+  styleUrls: ['./delete-family-id.component.scss'],
 })
-export class DeleteFamilyIdComponent implements OnInit {
+export class DeleteFamilyIdComponent {
+  deleteFamilyId: boolean = false;
 
-  constructor() { }
+  constructor(
+    public dialogRef: MatDialogRef<DeleteFamilyIdComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: FamilyID,
+    private snackBar: MatSnackBar
+  ) {}
 
-  ngOnInit(): void {
+  onNoClick(): void {
+    this.dialogRef.close(this.deleteFamilyId);
   }
 
+  onDeleteClick() {
+    this.autoDismissSnackBar('Family ID Deleted!', 'Goodbye!');
+    this.deleteFamilyId = true;
+  }
+
+  autoDismissSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+      verticalPosition: 'top',
+    });
+  }
 }
