@@ -36,6 +36,11 @@ import { DetailFamilyIdComponent } from './components/family-id/detail-family-id
 import { EditFamilyIdComponent } from './components/family-id/edit-family-id/edit-family-id.component';
 import { FamilyIdTableComponent } from './components/family-id/family-id-table/family-id-table.component';
 import { LoadingComponent } from './components/common/loading/loading.component';
+import { EventsComponent } from './components/events/events.component';
+import { AddEventComponent } from './components/events/add-event/add-event.component';
+import { DeleteEventComponent } from './components/events/delete-event/delete-event.component';
+import { EditEventComponent } from './components/events/edit-event/edit-event.component';
+import { DetailEventComponent } from './components/events/detail-event/detail-event.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +63,11 @@ import { LoadingComponent } from './components/common/loading/loading.component'
     EditFamilyIdComponent,
     FamilyIdTableComponent,
     LoadingComponent,
+    EventsComponent,
+    AddEventComponent,
+    DeleteEventComponent,
+    EditEventComponent,
+    DetailEventComponent,
   ],
   imports: [
     BrowserModule,
