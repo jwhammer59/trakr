@@ -41,6 +41,7 @@ import { AddEventComponent } from './components/events/add-event/add-event.compo
 import { DeleteEventComponent } from './components/events/delete-event/delete-event.component';
 import { EditEventComponent } from './components/events/edit-event/edit-event.component';
 import { DetailEventComponent } from './components/events/detail-event/detail-event.component';
+import { EventTableComponent } from './components/events/event-table/event-table.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { DetailEventComponent } from './components/events/detail-event/detail-ev
     DeleteEventComponent,
     EditEventComponent,
     DetailEventComponent,
+    EventTableComponent,
   ],
   imports: [
     BrowserModule,
