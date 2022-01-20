@@ -5,6 +5,7 @@ import {
   AngularFirestoreCollection,
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
+import firestore from 'firebase/compat/app';
 import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -70,5 +71,21 @@ export class VolunteersService {
   deleteVolunteer(volunteer: Volunteer) {
     this.volunteerDoc = this.afs.doc(`${this.dbPath}/${volunteer.id}`);
     this.volunteerDoc.delete();
+  }
+
+  updateVolUnAvailableDate(volunteer: Volunteer) {
+    this.volunteerDoc = this.afs.doc(`${this.dbPath}/${volunteer.id}`);
+    this.volunteerDoc.update({
+      dateUnAvailable: firestore.firestore.FieldValue.arrayUnion(
+        volunteer.dateUnAvailable
+      ),
+    });
+  }
+
+  deleteVolUnAvailableDate(date: string, vol: string) {
+    this.volunteerDoc = this.afs.doc(`${this.dbPath}/${vol}`);
+    this.volunteerDoc.update({
+      dateUnAvailable: firestore.firestore.FieldValue.arrayRemove(date),
+    });
   }
 }

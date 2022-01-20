@@ -5,8 +5,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FamilyID } from 'src/app/models/FamilyID';
 import { FamilyIdService } from 'src/app/services/family-id.service';
 
+import { VolunteersService } from 'src/app/services/volunteers.service';
+import { Volunteer } from 'src/app/models/Volunteer';
+
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteFamilyIdComponent } from '../delete-family-id/delete-family-id.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-detail-family-id',
@@ -17,6 +21,10 @@ export class DetailFamilyIdComponent implements OnInit {
   headerTitle = 'Family ID Detail';
   headerColor = 'accent';
   headerIcon = 'details';
+
+  allVolunteers$!: Observable<Volunteer[]>;
+  matchingFamilyID!: Volunteer[];
+  volunteerArray: string[] = [];
 
   id: string = '';
   familyId: FamilyID = {
@@ -30,6 +38,7 @@ export class DetailFamilyIdComponent implements OnInit {
 
   constructor(
     private familyIdService: FamilyIdService,
+    private volunteersService: VolunteersService,
     private router: Router,
     private route: ActivatedRoute,
     private dialog: MatDialog
@@ -40,6 +49,24 @@ export class DetailFamilyIdComponent implements OnInit {
     this.familyIdService.getFamilyID(this.id).subscribe((familyId) => {
       this.familyId = familyId;
     });
+
+    this.allVolunteers$ = this.volunteersService.getVolunteers();
+    this.allVolunteers$.subscribe((volData) => {
+      this.matchingFamilyID = volData;
+      this.filterMatchingFamilyIds(this.matchingFamilyID);
+    });
+  }
+
+  filterMatchingFamilyIds(data: Volunteer[]) {
+    this.volunteerArray = [];
+    data.map((el) => {
+      if (el.familyID.includes(this.familyId.familyID)) {
+        this.volunteerArray.push(el.firstName + ' ' + el.lastName);
+      } else {
+        return null;
+      }
+    });
+    console.log(this.volunteerArray);
   }
 
   onDeleteClicked() {

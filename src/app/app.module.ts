@@ -42,6 +42,7 @@ import { DeleteEventComponent } from './components/events/delete-event/delete-ev
 import { EditEventComponent } from './components/events/edit-event/edit-event.component';
 import { DetailEventComponent } from './components/events/detail-event/detail-event.component';
 import { EventTableComponent } from './components/events/event-table/event-table.component';
+import { AddUnavailableDateComponent } from './components/volunteers/dates/add-unavailable-date.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { EventTableComponent } from './components/events/event-table/event-table
     EditEventComponent,
     DetailEventComponent,
     EventTableComponent,
+    AddUnavailableDateComponent,
   ],
   imports: [
     BrowserModule,

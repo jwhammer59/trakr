@@ -15,9 +15,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./add-family-id.component.scss'],
 })
 export class AddFamilyIdComponent implements OnInit {
-  headerTitle = 'Add Volunteer';
+  headerTitle = 'Add Family ID';
   headerColor = 'accent';
-  headerIcon = 'person_add';
+  headerIcon = 'family_restroom';
 
   @ViewChild(MatSnackBar, { static: false }) snackbar!: MatSnackBar;
 

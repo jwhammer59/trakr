@@ -8,17 +8,32 @@
         <mat-card-title>
           {{ familyId.householdFirstName }} {{ familyId.householdLastName }}
         </mat-card-title>
-        <mat-card-subtitle> {{ familyId.familyID }} </mat-card-subtitle>
+        <mat-card-subtitle>
+          <span class="text-layout"> Family ID: </span>
+          {{ familyId.familyID }}
+        </mat-card-subtitle>
       </mat-card-header>
       <mat-divider></mat-divider>
       <mat-card-content>
-        <div class="checkbox-layout" fxLayout fxLayoutAlign="center center">
-          <div>
-            <span class="text-layout">Is Admin:</span>
-            <mat-checkbox
-              [checked]="familyId.householdIsActive"
-              disabled
-            ></mat-checkbox>
+        <div fxLayout="column" fxLayoutAlign="center center">
+          <mat-accordion *ngIf="volunteerArray.length > 0">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>All Family Members</mat-panel-title>
+              </mat-expansion-panel-header>
+              <mat-list role="list" *ngFor="let family of volunteerArray">
+                <mat-list-item role="listitem">{{ family }}</mat-list-item>
+              </mat-list>
+            </mat-expansion-panel>
+          </mat-accordion>
+          <div class="checkbox-layout" fxLayout fxLayoutAlign="center center">
+            <div>
+              <span class="text-layout">Is Active:</span>
+              <mat-checkbox
+                [checked]="familyId.householdIsActive"
+                disabled
+              ></mat-checkbox>
+            </div>
           </div>
         </div>
       </mat-card-content>

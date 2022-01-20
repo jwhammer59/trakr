@@ -43,7 +43,10 @@
                   <mat-label>Family ID</mat-label>
                   <mat-select formControlName="familyID">
                     <mat-option [value]="''">--</mat-option>
-                    <mat-option *ngFor="let familyId of allFamilyIDs$ | async">
+                    <mat-option
+                      *ngFor="let familyId of allFamilyIDs$ | async"
+                      [value]="familyId.familyID"
+                    >
                       {{ familyId.familyID }}
                     </mat-option>
                   </mat-select>
@@ -169,7 +172,7 @@
           </div>
           <mat-divider [inset]="true"></mat-divider>
           <h3>Volunteer Available Mass Times</h3>
-          <!-- <div class="confirm" fxLayout fxLayoutAlign="space-around">
+          <div class="confirm" fxLayout fxLayoutAlign="space-around">
             <mat-checkbox formControlName="isSaturday">Saturday</mat-checkbox>
             <mat-checkbox formControlName="isSundayEarly"
               >Sunday Early</mat-checkbox
@@ -203,7 +206,7 @@
                 >Mass Coordinator</mat-checkbox
               >
             </div>
-          </div> -->
+          </div>
         </div>
       </div>
 

@@ -8,6 +8,8 @@ import { VolunteersService } from 'src/app/services/volunteers.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteVolunteerComponent } from '../delete-volunteer/delete-volunteer.component';
 
+import { AddUnavailableDateComponent } from '../dates/add-unavailable-date.component';
+
 @Component({
   selector: 'app-detail-volunteer',
   templateUrl: './detail-volunteer.component.html',
@@ -32,6 +34,21 @@ export class DetailVolunteerComponent implements OnInit {
     familyID: '',
     isAdmin: false,
     isAvailable: false,
+    isCantor: false,
+    isEMoHC: false,
+    isGifts: false,
+    isGiftsChild: false,
+    isLector: false,
+    isMassCoord: false,
+    isOther: false,
+    isRosary: false,
+    isServer: false,
+    isTech: false,
+    isUsher: false,
+    isSaturday: false,
+    isSundayEarly: false,
+    isSundayLate: false,
+    isWeekday: false,
   };
 
   constructor(
@@ -65,6 +82,28 @@ export class DetailVolunteerComponent implements OnInit {
         this.volunteersService.deleteVolunteer(this.volunteer);
       }
       this.router.navigate(['/volunteers']);
+    });
+  }
+
+  onDeleteDateClicked(date: string, id: string) {
+    this.volunteersService.deleteVolUnAvailableDate(date, id);
+  }
+
+  addUnAvailableDate() {
+    const dialogRefAddUndate = this.dialog.open(AddUnavailableDateComponent, {
+      width: '325px',
+      data: {
+        id: this.id,
+      },
+    });
+
+    dialogRefAddUndate.afterClosed().subscribe((result) => {
+      if (!result) {
+        dialogRefAddUndate.close();
+        return;
+      } else {
+        this.router.navigate(['/volunteers']);
+      }
     });
   }
 }
