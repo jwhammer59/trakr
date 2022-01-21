@@ -19,7 +19,16 @@
           <mat-accordion *ngIf="volunteerArray.length > 0">
             <mat-expansion-panel>
               <mat-expansion-panel-header>
-                <mat-panel-title>All Family Members</mat-panel-title>
+                <mat-panel-title>
+                  <div id="badge">
+                    <span
+                      matBadge="{{ volunteerArray.length }}"
+                      matBadgeSize="small"
+                      matBadgeOverlap="false"
+                      >All Family Members</span
+                    >
+                  </div>
+                </mat-panel-title>
               </mat-expansion-panel-header>
               <mat-list role="list" *ngFor="let family of volunteerArray">
                 <mat-list-item role="listitem">{{ family }}</mat-list-item>

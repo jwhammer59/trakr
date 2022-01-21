@@ -25,6 +25,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatBadgeModule } from '@angular/material/badge';
 
 // Angular Material Table Imports
 import { MatTableModule } from '@angular/material/table';
@@ -39,6 +40,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 
 const material = [
   MatButtonModule,
+  MatBadgeModule,
   MatIconModule,
   MatListModule,
   MatMenuModule,
