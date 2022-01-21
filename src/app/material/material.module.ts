@@ -59,6 +59,7 @@ const material = [
   MatBottomSheetModule,
   MatDialogModule,
   MatSnackBarModule,
+  MatNativeDateModule,
   MatSelectModule,
   MatDatepickerModule,
   MatProgressBarModule,
