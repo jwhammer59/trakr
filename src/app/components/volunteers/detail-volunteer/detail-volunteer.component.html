@@ -139,6 +139,11 @@
                   >
                   </mat-checkbox>
                 </p>
+                <p fxFlexAlign="end">
+                  <span>Technology: </span>
+                  <mat-checkbox [disabled]="true" [checked]="volunteer.isTech">
+                  </mat-checkbox>
+                </p>
               </div>
 
               <div fxLayout="column">
@@ -172,8 +177,8 @@
                   </mat-checkbox>
                 </p>
                 <p fxFlexAlign="end">
-                  <span>Technology: </span>
-                  <mat-checkbox [disabled]="true" [checked]="volunteer.isTech">
+                  <span>Other: </span>
+                  <mat-checkbox [disabled]="true" [checked]="volunteer.isOther">
                   </mat-checkbox>
                 </p>
               </div>
